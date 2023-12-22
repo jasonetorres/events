@@ -1,5 +1,7 @@
 import  Link  from 'next/link'
 import Image from 'next/image'
+import { SignedOut } from '@clerk/nextjs'
+import { Button } from '../button'
 
 const Header = () => {
   return (
@@ -9,7 +11,13 @@ const Header = () => {
          <Image src='/assets/images/logo.svg'width={128} height={38} alt='logo'/>
         </Link>
         <div className='flex w-32 justify-end gap-3'>
-          
+          <SignedOut>
+            <Button asChild className='rounded-full'size="lg">
+              <Link href="/sign-in">
+                Login
+              </Link>
+            </Button>
+          </SignedOut>
         </div>
       </div>
     </header>
